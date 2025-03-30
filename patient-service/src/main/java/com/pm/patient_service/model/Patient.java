@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-public class Model {
+public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -22,11 +22,6 @@ public class Model {
     @NotNull
     @Column(unique = true)
     private String email;
-
-    @CPF
-    @NotNull
-    @Column(unique = true)
-    private String cpf;
 
     @NotNull
     private String address;
@@ -59,14 +54,6 @@ public class Model {
 
     public void setEmail(@Email @NotNull String email) {
         this.email = email;
-    }
-
-    public @CPF @NotNull String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(@CPF @NotNull String cpf) {
-        this.cpf = cpf;
     }
 
     public @NotNull String getAddress() {
