@@ -1,2 +1,2 @@
-# patient-management-system
-Patient management system using SpringBoot microservices
+# Patient Management System
+Patient management system using SpringBoot microservices. Project made for studying.
