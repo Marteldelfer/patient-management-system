@@ -1,5 +1,7 @@
 package com.pm.patient_service.dto;
 
+import com.pm.patient_service.validators.CreatePatientValidationGroup;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -19,56 +21,46 @@ public class PatientRequestDTO {
     @NotBlank(message = "Date of birth is required")
     private String dateOfBirth;
 
-    @NotBlank(message = "Registered date is required")
+    @NotBlank(groups = CreatePatientValidationGroup.class, message = "Registered date is required")
     private String registeredDate;
 
-    public @NotBlank(message = "Name is required") String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(
-        @NotBlank(message = "Name is required") @Size(max = 100, message = "Name cannot exceed 100 characters") String name
-    ) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public @NotBlank(message = "Email is required") String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(
-        @NotBlank(message = "Email is required") String email
-    ) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotBlank(message = "Address is required") String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(
-        @NotBlank(message = "Address is required") String address
-    ) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public @NotBlank(message = "Date of birth is required") String getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public  void setDateOfBirth(
-        @NotBlank(message = "Date of birth is required") String dateOfBirth
-    ) {
+    public  void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public @NotBlank(message = "Registered date is required") String getRegisteredDate() {
+    public String getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(
-        @NotBlank(message = "Registered date is required") String registeredDate
-    ) {
+    public void setRegisteredDate(String registeredDate) {
         this.registeredDate = registeredDate;
     }
 }
