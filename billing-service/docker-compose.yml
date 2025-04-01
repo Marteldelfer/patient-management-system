@@ -1,0 +1,13 @@
+services:
+  billing-service:
+    image: billing-service
+    container_name: billing-service
+    ports:
+      - 4001:4001
+      - 9001:9001
+    networks:
+      - internal
+networks:
+  internal:
+    name: internal
+    driver: bridge
