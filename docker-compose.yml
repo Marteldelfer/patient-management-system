@@ -23,8 +23,6 @@ services:
       - BILLING_SERVICE_ADDRESS=billing-service
       - BILLING_SERVICE_GRPC_PORT=9001
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-    ports:
-      - "4000:4000"
     networks:
       - internal
     depends_on:
@@ -67,6 +65,16 @@ services:
       - internal
     depends_on:
       - kafka
+
+  api-gateway:
+    image: api-gateway
+    container_name: api-gateway
+    ports:
+      - "4004:4004"
+    networks:
+      - internal
+    depends_on:
+      - patient-service
 
 networks:
   internal:
