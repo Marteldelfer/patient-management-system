@@ -11,6 +11,18 @@ services:
     networks:
       - internal
 
+  auth-service-db:
+    image: postgres
+    container_name: auth-service-db
+    environment:
+      - POSTGRES_USER=admin_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    ports:
+      - "5001:5432"
+    networks:
+      - internal
+
   patient-service:
     image: patient-service
     container_name: patient-service
